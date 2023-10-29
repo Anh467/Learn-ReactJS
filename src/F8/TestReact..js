@@ -1,9 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import ReactDOM from "react-dom";
-import { createRoot } from 'react-dom/client';
-import RenderCourse from './F8/RenderCourse';
 // <h1>
 //document.body.innerHTML = ''
 var div= document.createElement('div');
@@ -29,18 +26,20 @@ var divPostItem = document.createElement('div')
 divPostItem.class='post-item'
 divPostItem.append(h2, p)
 // append to body
-// document.body.appendChild(div)
-// document.body.appendChild(ul)
-// document.body.appendChild(divPostItem)
+document.body.appendChild(div)
+document.body.appendChild(ul)
+document.body.appendChild(divPostItem)
 
 // react
 //document.body.innerHTML = ''
 const h1React = React.createElement('h1',{
   title: 'Hello',
-  className: 'heading',
+  class: 'heading',
   children : 'Hello guys!'
 })
-const divReact = React.createElement('div',null,h1React)
+const divReact = React.createElement('div',{
+ 
+},h1React)
 // <ul>
 const liReact = [
   React.createElement('li',{
@@ -58,15 +57,10 @@ var h2React= React.createElement('h2',{
 var pReact = React.createElement('p',null,
 'Học React từ cơ bản đến nâng cao')
 var divPostItemReact= React.createElement('div' ,null , h2React, pReact)
-// get root 
-const container = document.getElementById('root')
-// create root 
-ReactDOM.render(divReact, container)
-
+// dom render
 function App() {
   return (
     <div className="App">
-      <RenderCourse/>
     </div>
 
   );
