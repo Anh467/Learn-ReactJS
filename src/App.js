@@ -1,73 +1,58 @@
+// import css/img/...
 import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+
+// library
+import React, {Component} from 'react';
 import ReactDOM from "react-dom";
 import { createRoot } from 'react-dom/client';
+
+// import commponent
 import RenderCourse from './F8/RenderCourse';
-// <h1>
-//document.body.innerHTML = ''
-var div= document.createElement('div');
-var h1 =  document.createElement('h1');
-h1.title = 'Hello'
-h1.class = 'heading'
-h1.innerHTML = 'Hello guys!'
-div.appendChild(h1)
-// <ul>
-var ul = document.createElement('ul')
-var li = [document.createElement('li'), document.createElement('li')]
-li[0].innerHTML = 'Javacript'  
-li[1].innerHTML = 'ReactJS'
-ul.appendChild(li[0])
-ul.appendChild(li[1])
-// div post-item
-var h2 = document.createElement('h2')
-h2.innerHTML = 'Hoc ReactJS'
-h2.title = 'Hoc React tại F8'
-var p = document.createElement('p')
-p.innerHTML = 'Học React từ cơ bản đến nâng cao'
-var divPostItem = document.createElement('div')
-divPostItem.class='post-item'
-divPostItem.append(h2, p)
-// append to body
-// document.body.appendChild(div)
-// document.body.appendChild(ul)
-// document.body.appendChild(divPostItem)
-
-// react
-//document.body.innerHTML = ''
-const h1React = React.createElement('h1',{
-  title: 'Hello',
-  className: 'heading',
-  children : 'Hello guys!'
-})
-const divReact = React.createElement('div',null,h1React)
-// <ul>
-const liReact = [
-  React.createElement('li',{
-    children: 'Javascript'
-  }),
-  React.createElement('li',{
-    children: 'ReactJS'
-  })
+import Header from './component/layout/header';
+import Content from './component/layout/content';
+import Footer from './component/layout/footer';
+import PostsList from './F8/post/post_list';
+//
+const PostListData = [
+  {
+    img: 'https://files.fullstack.edu.vn/f8-prod/blog_posts/8306/65299d0ce743e.png', 
+    title: 'Authentication & Authorization trong ReactJS', 
+    desc: 'Authentication và Authorization là một phần quan trọng trong việc phát triển phần mềm, giúp chúng ta xác thực và phân quyền...', 
+    published :'15 ngày trước·9 phút đọc'
+  },
+  {
+    img: 'https://files.fullstack.edu.vn/f8-prod/blog_posts/8334/64f01064b0724.png', 
+    title: 'Hướng dẫn chi tiết cách sử dụng Dev Mode trong khóa Pro', 
+    desc: 'Chào bạn! Nếu bạn đã là học viên khóa Pro của F8, chắc hẳn bạn đã biết tới "Dev Mode" - giúp thực hành code song song khi xem...', 
+    published: '2 tháng trước·4 phút đọc'
+  },
+  {
+    img: 'https://files.fullstack.edu.vn/f8-prod/blog_posts/7940/64a645ea70312.png', 
+    title: 'Cách chỉnh theme Oh-my-posh cho Powershell', 
+    desc: 'Hello ae mọi người nhé, mọi người (đặc biệt là lập trình viên Software) chắc hẳn đã nghe tới Powershell, nhưng bù lại cái màn hình...', 
+    published: '3 tháng trước·2 phút đọc'
+  },
+  {
+    img: 'https://files.fullstack.edu.vn/f8-prod/blog_posts/7924/64a2487459fe5.jpg', 
+    title: 'Một số "cẩm nang" hay khi làm việc với HTML/CSS😂', 
+    desc: 'Bài viết này đơn giản là nơi để mình lưu lại những kinh nghiệm mình đã làm việc với HTML/CSS cũng như chia sẻ phần nào cho bạn...', 
+    published: '4 tháng trước·4 phút đọc'
+  },
+  {
+    img: 'https://files.fullstack.edu.vn/f8-prod/blog_posts/7922/64a23b234c52e.png', 
+    title: '"Kết nối trước" với preconnect, prefetch để làm gì?', 
+    desc: 'Ở đây chắc hẳn ai cũng từng dùng google fonts để nhúng fonts vào...', 
+    published: '4 tháng trước·3 phút đọc'
+  },
 ]
-const ulReact = React.createElement('ul',null, liReact[0], liReact[1])
-// div post-item
-var h2React= React.createElement('h2',{
-  title:'Học React tại f8'
-}, 'Học ReactJS')
-var pReact = React.createElement('p',null,
-'Học React từ cơ bản đến nâng cao')
-var divPostItemReact= React.createElement('div' ,null , h2React, pReact)
-// get root 
-const container = document.getElementById('root')
-// create root 
-ReactDOM.render(divReact, container)
-
 function App() {
   return (
-    <div className="App">
-      <RenderCourse/>
-    </div>
+    <React.Fragment>
+      <Header/>
+      <PostsList input= {PostListData}/>
+      <Footer/>
+    </React.Fragment>
 
   );
 }
